@@ -12,7 +12,7 @@ interface MultiSelectProps {
 }
 
 export function MultiSelect({
-  values,
+  values = [], // Default to empty array
   onValuesChange,
   placeholder = "Add items...",
   className

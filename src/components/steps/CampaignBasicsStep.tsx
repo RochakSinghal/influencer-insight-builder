@@ -104,7 +104,7 @@ export function CampaignBasicsStep({ formData, updateFormData }: CampaignBasicsS
                 <SelectTrigger className="mt-2">
                   <SelectValue />
                 </SelectTrigger>
-                <SelectContent>
+                <SelectContent className="bg-background border z-50">
                   <SelectItem value="All">All Genders</SelectItem>
                   <SelectItem value="Male">Male</SelectItem>
                   <SelectItem value="Female">Female</SelectItem>
@@ -219,7 +219,7 @@ export function CampaignBasicsStep({ formData, updateFormData }: CampaignBasicsS
               <SelectTrigger className="mt-2">
                 <SelectValue />
               </SelectTrigger>
-              <SelectContent>
+              <SelectContent className="bg-background border z-50">
                 <SelectItem value="All">All Genders</SelectItem>
                 <SelectItem value="Male">Male</SelectItem>
                 <SelectItem value="Female">Female</SelectItem>
@@ -313,7 +313,7 @@ export function CampaignBasicsStep({ formData, updateFormData }: CampaignBasicsS
               <SelectTrigger className="mt-2">
                 <SelectValue placeholder="Select language" />
               </SelectTrigger>
-              <SelectContent className="max-h-60">
+              <SelectContent className="max-h-60 bg-background border z-50">
                 {LANGUAGES.map((lang) => (
                   <SelectItem key={lang} value={lang}>
                     {lang}
