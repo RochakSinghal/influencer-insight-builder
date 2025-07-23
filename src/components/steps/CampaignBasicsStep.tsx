@@ -272,9 +272,9 @@ export function CampaignBasicsStep({ formData, updateFormData }: CampaignBasicsS
                 <div key={type} className="flex items-center space-x-2">
                   <Checkbox
                     id={`type-${type}`}
-                    checked={formData.influencerType.includes(type)}
+                    checked={formData.influencerType?.includes(type) || false}
                     onCheckedChange={(checked) => {
-                      const currentTypes = formData.influencerType;
+                      const currentTypes = formData.influencerType || [];
                       if (checked) {
                         updateFormData({ influencerType: [...currentTypes, type] });
                       } else {
