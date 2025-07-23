@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Progress } from '@/components/ui/progress';
-import { CampaignFormData, INFLUENCER_CATEGORIES, CURRENCY_OPTIONS, InfluencerData } from '@/types/campaign';
+import { CampaignFormData, INFLUENCER_CATEGORIES, InfluencerData } from '@/types/campaign';
 import { Target, Users, Hash, Tag, MapPin, DollarSign, Star, TrendingUp, Eye, Heart, MessageCircle, Share2, Lightbulb } from 'lucide-react';
 
 interface CampaignResultsStepProps {
@@ -80,7 +80,7 @@ export function CampaignResultsStep({ formData }: CampaignResultsStepProps) {
   const [selectedInfluencer, setSelectedInfluencer] = useState<InfluencerData | null>(null);
 
   const getCurrencySymbol = (code: string) => {
-    return CURRENCY_OPTIONS.find(c => c.code === code)?.symbol || '₹';
+    return '$'; // USD default
   };
 
   const getSelectedCategories = () => {

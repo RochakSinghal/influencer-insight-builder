@@ -18,12 +18,16 @@ export function CampaignWizard() {
   const [currentStep, setCurrentStep] = useState(0);
   const [formData, setFormData] = useState<CampaignFormData>({
     objective: '',
-    audienceLocation: { city: '', state: '', country: '' },
+    audienceLocation: { cities: [], states: [], country: '' },
     audienceGender: 'All',
+    audienceGenderPercentage: 60,
     audienceAge: [],
-    campaignBudget: { amount: 0, currency: 'INR' },
+    campaignBudget: { amount: 0, currency: 'USD' },
     influencerGender: 'All',
-    influencerLocation: { city: '', state: '', country: '' },
+    influencerLocation: { cities: [], states: [], country: '' },
+    influencerType: [],
+    engagementRate: 0,
+    language: '',
     keywords: [],
     categories: []
   });
@@ -35,7 +39,7 @@ export function CampaignWizard() {
   const canProceed = () => {
     switch (currentStep) {
       case 0:
-        return formData.objective && formData.campaignBudget.amount > 0;
+        return formData.objective && formData.campaignBudget.amount > 0 && formData.engagementRate > 0 && formData.language;
       case 1:
         return formData.keywords.length > 0 && formData.categories.length > 0;
       default:

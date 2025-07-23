@@ -2,11 +2,12 @@ export interface CampaignFormData {
   // Step 1 - Basic campaign details
   objective: string;
   audienceLocation: {
-    city: string;
-    state: string;
+    cities: string[];
+    states: string[];
     country: string;
   };
   audienceGender: 'Male' | 'Female' | 'All';
+  audienceGenderPercentage: number;
   audienceAge: string[]; // Multiple selection
   campaignBudget: {
     amount: number;
@@ -14,10 +15,13 @@ export interface CampaignFormData {
   };
   influencerGender: 'Male' | 'Female' | 'All';
   influencerLocation: {
-    city: string;
-    state: string;
+    cities: string[];
+    states: string[];
     country: string;
   };
+  influencerType: string[];
+  engagementRate: number;
+  language: string;
   
   // Step 2 - Keywords and categories
   keywords: string[];
@@ -73,14 +77,45 @@ export const AUDIENCE_AGE_OPTIONS = [
   '25 - 34',
   '35 - 44',
   '45 - 54',
-  '55+'
+  '55 - 64',
+  '65+'
 ];
 
-export const CURRENCY_OPTIONS = [
-  { code: 'INR', symbol: '₹', name: 'Indian Rupee' },
-  { code: 'USD', symbol: '$', name: 'US Dollar' },
-  { code: 'EUR', symbol: '€', name: 'Euro' },
-  { code: 'GBP', symbol: '£', name: 'British Pound' },
+export const INFLUENCER_TYPES = [
+  'Nano (1K - 10K)',
+  'Micro (10K - 50K)', 
+  'Mid (50K - 100K)',
+  'Macro (100K - 1M)',
+  'Mega (1M+)'
+];
+
+export const LANGUAGES = [
+  'aa', 'ab', 'ae', 'af', 'ak', 'am', 'an', 'ar', 'as', 'av', 'ay', 'az',
+  'ba', 'be', 'bg', 'bh', 'bi', 'bm', 'bn', 'bo', 'br', 'bs',
+  'ca', 'ce', 'ch', 'co', 'cr', 'cs', 'cu', 'cv', 'cy',
+  'da', 'de', 'dv', 'dz',
+  'ee', 'el', 'en', 'eo', 'es', 'et', 'eu',
+  'fa', 'ff', 'fi', 'fj', 'fl', 'fo', 'fr', 'fy',
+  'ga', 'gd', 'gl', 'gn', 'gu', 'gv',
+  'ha', 'he', 'hi', 'ho', 'hr', 'ht', 'hu', 'hy', 'hz',
+  'ia', 'id', 'ie', 'ig', 'ii', 'ik', 'io', 'is', 'it', 'iu',
+  'ja', 'jv',
+  'ka', 'kg', 'ki', 'kj', 'kk', 'kl', 'km', 'kn', 'ko', 'kr', 'ks', 'ku', 'kv', 'kw', 'ky',
+  'la', 'lb', 'lg', 'li', 'ln', 'lo', 'lt', 'lu', 'lv',
+  'mg', 'mh', 'mi', 'mk', 'ml', 'mn', 'mr', 'ms', 'mt', 'my',
+  'na', 'nb', 'nd', 'ne', 'ng', 'nl', 'nn', 'no', 'nr', 'nv', 'ny',
+  'oc', 'oj', 'om', 'or', 'os',
+  'pa', 'pi', 'pl', 'ps', 'pt',
+  'qu',
+  'rm', 'rn', 'ro', 'ru', 'rw',
+  'sa', 'sc', 'sd', 'se', 'sg', 'si', 'sk', 'sl', 'sm', 'sn', 'so', 'sq', 'sr', 'ss', 'st', 'su', 'sv', 'sw',
+  'ta', 'te', 'tg', 'th', 'ti', 'tk', 'tl', 'tn', 'to', 'tr', 'ts', 'tt', 'tw', 'ty',
+  'ug', 'uk', 'ur', 'uz',
+  've', 'vi', 'vo',
+  'wa', 'wo',
+  'xh',
+  'yi', 'yo',
+  'za', 'zh', 'zu'
 ];
 
 export const INFLUENCER_CATEGORIES: InfluencerCategory[] = [
